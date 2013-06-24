@@ -1,5 +1,5 @@
 {
-    "name":         "Saeven/circlical-acl-admin",
+    "name":         "saeven/circlical-acl-admin",
     "description":  "Admin moderation panel for bjyoungblood/bjy-authorize",
     "type":         "library",
     "license":      "BSD-3-Clause",
