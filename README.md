@@ -1,6 +1,8 @@
 Circlical ACL Administrator
 =========
 
+![Dashboard image](https://raw.github.com/Saeven/CirclicalACLAdmin/master/examples/circlical-acl.jpg)
+
 This is an ACL administration dashboard for use with Zend Framework 2 and ZFCUser + BjyAuthorize + Doctrine.  Where the former provide a great framework to implement access control, they offer no means to invite users (as is often the case with corp. applications).  Where ZFCUser and BjyAuthorize saved me a ton of time, this is my attempt to give back.
 
 > Doctrine as a requirement is just happenstance right now, I relied on access to object repo for DB connections for the time being since I'm in a crunch for the project that relies on this piece.
@@ -53,6 +55,6 @@ If you haven't set up your BjyAuthorize and ZFCUser yet, do that first
 
 - Log into your application as an administrative user (role admin).  If you need to change the role type, just override the guard for CirclicalACLAdmin
 - Access /acl-admin
-- Should be in
+- Should see dashboard
 
 
