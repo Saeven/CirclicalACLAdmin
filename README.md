@@ -20,6 +20,8 @@ The Wish List
   c. Limit visible fields based on module config, may not want all Entity data to be populated by user (DONE)
   d. Receive a thanks for registering email post-reg (DONE)
 
+  3. Edit this markdown file to include config examples (check module config for now)
+
 
 
 Version
@@ -42,3 +44,15 @@ Add this line to your composer.json:
 "saeven/circlical-acl-admin" : "dev-master"
 
 Then, run the SQL create found in the data folder
+
+
+Usage
+---------------
+
+If you haven't set up your BjyAuthorize and ZFCUser yet, do that first
+
+- Log into your application as an administrative user (role admin).  If you need to change the role type, just override the guard for CirclicalACLAdmin
+- Access /acl-admin
+- Should be in
+
+
