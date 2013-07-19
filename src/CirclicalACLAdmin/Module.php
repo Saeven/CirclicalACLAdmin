@@ -34,9 +34,9 @@ class Module implements
      */
     public function onBootstrap(EventInterface $event)
     {
-        /* @var $app \Zend\Mvc\ApplicationInterface */
-        $app            = $event->getTarget();
+
     }
+
 
     /**
      * {@inheritDoc}
@@ -60,6 +60,39 @@ class Module implements
 
             ),
         );
+    }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'invokables' => array(
+                'circlical_acl_utilities'	=> 'CirclicalACLAdmin\Model\Utilities',
+            ),
+
+            'factories' => array(
+                'circlical_mail_transport' => function($instance, $sm) {
+                    $config     = $this->getServiceLocator()->get('Config');
+                    $config     = $config['circlical-acl-admin']['mail'];
+
+                    $b          = new \Zend\Mail\Transport\Smtp();
+                    $b->setOptions(
+                        new \Zend\Mail\Transport\SmtpOptions(
+                            array(
+                                'host'              => $config['smtp']['host'],
+                                'connection_class'  => $config['smtp']['class'],
+                                'port'              => $config['smtp']['port'],
+                                'connection_config' => array(
+                                    'username' => $config['smtp']['user'],
+                                    'password' => $config['smtp']['pass'],
+                                )
+                            )
+                        )
+                    );
+                    return $b;
+                },
+            ),
+        );
+
     }
 
     /**

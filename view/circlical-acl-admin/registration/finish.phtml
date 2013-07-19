@@ -1,0 +1,35 @@
+<h1>Step 2: Register</h1>
+<p>Thanks for verifying your identity!  Complete your registration below.</p>
+
+<?php
+
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('method', 'post');
+?>
+
+<?php echo $this->form()->openTag($form) ?>
+<dl class="zend_form">
+    <?php foreach ($form as $element): ?>
+
+        <?php if ($element instanceof Zend\Form\Element\Hidden ): ?>
+            <?php echo $this->formHidden( $element ); ?>
+        <? else: ?>
+            <?php if (!$element instanceof Zend\Form\Element\Button): ?>
+                <dt><?php echo $this->formLabel($element) ?></dt>
+            <?php endif ?>
+            <?php if ($element instanceof Zend\Form\Element\Button): ?>
+                <dd><?php echo $this->formButton($element) ?></dd>
+            <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
+                <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
+            <?php else: ?>
+                <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
+            <?php endif ?>
+        <?php endif ?>
+
+    <?php endforeach ?>
+</dl>
+<?php if ($this->redirect): ?>
+    <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+<?php endif ?>
+<?php echo $this->form()->closeTag() ?>

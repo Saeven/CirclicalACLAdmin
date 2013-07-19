@@ -1,0 +1,43 @@
+<div id="users-action">
+
+    <div class="invite_area">
+
+        <h1>Add Users</h1>
+        <p class="invite_caption">To add more people, type their email addresses:</p>
+
+        <div class="input">
+            <input type="text" spellcheck="false" />
+            <div class="validation_error">Sorry, this email address isn't valid.</div>
+        </div>
+
+        <div class="input">
+            <input type="text" spellcheck="false" />
+            <div class="validation_error">Sorry, this email address isn't valid.</div>
+        </div>
+
+        <div class="input">
+            <input type="text" spellcheck="false" />
+            <div class="validation_error">Sorry, this email address isn't valid.</div>
+        </div>
+
+        <p class="invite_caption message">Add a welcome message for those you invite:</p>
+        <textarea id="welcome_message"><?= $welcome_message ?></textarea>
+
+        <input id="users-action-acl-invite" type="submit" value="Send Invitation(s)" />
+        <div id="users-action-acl-progress"></div>
+    </div>
+
+    <div class="users_area">
+        <h1>User List</h1>
+        <ul>
+        <?php foreach( $this->user_list as $u ): ?>
+            <li id="user_list">
+                <div class="user_tile">
+                    <div class="user_email"><?= $u->getEmail() ?></div>
+                    <div class="user_status">Status</div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+</div>

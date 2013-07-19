@@ -1,0 +1,24 @@
+<h1>Step 1: Validation</h1>
+<p>This system is invitation only!  Please confirm the email address to which the backstage pass was sent using the form below.</p>
+
+<?php
+
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+    echo $this->formLabel($form->get('email'));
+    echo $this->formInput($form->get('email'));
+    echo $this->formElementErrors($form->get('email'));
+    echo $this->formInput($form->get('id'));
+    echo $this->formElementErrors($form->get('id'));
+    echo $this->formInput($form->get('hash'));
+    echo $this->formElementErrors($form->get('hash'));
+    echo $this->formHidden($form->get('csrf'));
+
+?>
+<br/>
+
+<?php
+
+    echo $this->formSubmit( $form->get('submit') );
+    echo $this->form()->closeTag($form);
